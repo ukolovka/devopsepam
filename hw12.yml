@@ -1,0 +1,19 @@
+---
+- name: Continue HomeWork
+  hosts: nodes
+  tasks:
+  - name: disable NetworkManager     
+    service:
+      name: NetworkManager
+      state: stopped
+  - name: add net.ifnames
+    lineinfile:
+      path: /etc/default/grub
+      state: present
+      regexp: ^GRUB_CMDLINE_LINUX=$
+      backrefs: yes
+      line: '\1" net.ifnames=0 biosdevname=0'
+  - name: run grub2-mkconfig
+    shell:
+      cmd: grub2-mkconfig   
+...
