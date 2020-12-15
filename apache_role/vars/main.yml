@@ -1,4 +1,4 @@
 ---
 httpd_packages:
   - httpd
-  - python3-mod_wsgi
+ # - python3-mod_wsgi
