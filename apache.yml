@@ -1,6 +1,6 @@
 ---
 - name: install Apache
-  hosts: nodes
+  hosts: all
   tasks:
   - name: Install apache packages 
     yum:
